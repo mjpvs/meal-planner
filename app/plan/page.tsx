@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Meal, DayPlan } from '@/lib/types';
+import { apiPath } from '@/lib/paths';
 
 interface DayPlanWithMeal extends DayPlan {
     meal: Meal | null;
@@ -27,7 +28,7 @@ export default function PlanPage() {
     }, []);
 
     async function fetchPlan() {
-        const res = await fetch('/api/plan');
+        const res = await fetch(apiPath('plan'));
         const data: PlanResponse = await res.json();
         setPlanData(data.plan);
         setMessage(data.message || '');
@@ -36,7 +37,7 @@ export default function PlanPage() {
 
     async function regeneratePlan() {
         setGenerating(true);
-        const res = await fetch('/api/plan', { method: 'POST' });
+        const res = await fetch(apiPath('plan'), { method: 'POST' });
         const data: PlanResponse = await res.json();
         setPlanData(data.plan);
         setGenerating(false);

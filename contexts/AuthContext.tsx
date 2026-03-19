@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { apiPath } from '@/lib/paths';
 
 interface AuthContextType {
     isAuthenticated: boolean;
@@ -29,7 +30,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async function login(password: string): Promise<boolean> {
         setIsLoading(true);
         try {
-            const res = await fetch('/api/auth', {
+            const res = await fetch(apiPath('auth'), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ password }),
