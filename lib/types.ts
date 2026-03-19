@@ -13,6 +13,7 @@ export interface MealPlan {
     weekNumber: number;
     year: number;
     days: DayPlan[];
+    dates?: string[];
 }
 
 export type DaysOfWeek = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';

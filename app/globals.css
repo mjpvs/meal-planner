@@ -207,12 +207,6 @@ textarea:focus {
 .day-name {
     font-weight: 600;
     text-transform: capitalize;
-    min-width: 100px;
-}
-
-.meal-name {
-    flex: 1;
-    margin-left: 1rem;
 }
 
 .meal-ingredients {
@@ -298,4 +292,89 @@ textarea:focus {
 .btn-logout:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.5);
+}
+
+.week-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.week-nav .btn.active {
+    background-color: #3498db;
+    color: white;
+}
+
+.week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+
+.week-label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.week-dates {
+    color: #777;
+    font-size: 0.875rem;
+}
+
+.day-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.day-date {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.day-meal {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 1rem;
+}
+
+.meal-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.meal-name {
+    flex: 1;
+}
+
+.meal-edit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.meal-select {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.meal-select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.btn-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
 }
