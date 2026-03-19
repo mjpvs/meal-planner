@@ -3,7 +3,6 @@
 import './globals.css';
 import Link from 'next/link';
 import { AuthProvider, useAuth } from '@/contexts/AuthContext';
-import { path } from '@/lib/paths';
 import { useState } from 'react';
 
 function LoginScreen() {
@@ -66,8 +65,8 @@ function AppContent({ children }: { children: React.ReactNode }) {
                     <h1 className="nav-title">Meal Planner</h1>
                     <div className="nav-right">
                         <div className="nav-links">
-                            <Link href={path('plan')}>Weekly Plan</Link>
-                            <Link href={path('meals')}>Meals</Link>
+                            <Link href="/plan">Weekly Plan</Link>
+                            <Link href="/meals">Meals</Link>
                         </div>
                         <button className="btn btn-logout" onClick={logout}>
                             Logout

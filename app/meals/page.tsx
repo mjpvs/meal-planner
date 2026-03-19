@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Meal } from '@/lib/types';
-import { apiPath } from '@/lib/paths';
 
 export default function MealsPage() {
     const [meals, setMeals] = useState<Meal[]>([]);
@@ -18,7 +17,7 @@ export default function MealsPage() {
     }, []);
 
     async function fetchMeals() {
-        const res = await fetch(apiPath('meals'));
+        const res = await fetch('/api/meals');
         const data = await res.json();
         setMeals(data);
         setLoading(false);
@@ -33,7 +32,7 @@ export default function MealsPage() {
             .map((i) => i.trim())
             .filter((i) => i);
 
-        const res = await fetch(apiPath('meals'), {
+        const res = await fetch('/api/meals', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: newName, ingredients }),
@@ -50,7 +49,7 @@ export default function MealsPage() {
     async function handleDelete(id: string) {
         if (!confirm('Delete this meal?')) return;
 
-        const res = await fetch(apiPath(`meals/${id}`), { method: 'DELETE' });
+        const res = await fetch(`/api/meals/${id}`, { method: 'DELETE' });
         if (res.ok) {
             setMeals(meals.filter((m) => m.id !== id));
         }
@@ -74,7 +73,7 @@ export default function MealsPage() {
             .map((i) => i.trim())
             .filter((i) => i);
 
-        const res = await fetch(apiPath(`meals/${id}`), {
+        const res = await fetch(`/api/meals/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: editName, ingredients }),
